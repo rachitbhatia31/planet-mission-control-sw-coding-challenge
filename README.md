@@ -1,4 +1,4 @@
-# Satellite Deorbiting Mission Planning Simulation
+# LEO Constellation End-Of-Life Mission Optimization Tool
 
 ## Overview
 This Python script provides a reusable tool for end-of-life mission planning and enabling controlled deorbit of
