@@ -36,6 +36,11 @@ pip install numpy scipy poliastro astropy matplotlib
 python constellation_deorbit_optimization.py
 ```
 
+### Running the simulation with higher precision and improved dynamics
+```bash
+python constellation_deorbit_optimization_precision.py
+```
+
 ### Input Parameters
 When prompted, provide the following for each satellite:
 1. Semi-major axis (meters)
