@@ -33,7 +33,7 @@ pip install numpy scipy poliastro astropy matplotlib
 
 ### Running the Simulation
 ```bash
-python satellite_deorbit_simulation.py
+python constellation_deorbit_optimization.py
 ```
 
 ### Input Parameters
