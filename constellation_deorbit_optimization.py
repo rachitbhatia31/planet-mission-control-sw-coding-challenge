@@ -561,7 +561,7 @@ def plot_results(num_sat, all_times, all_states):
     plt.plot(plot_times / 60, plot_r / 1e3)  # Time in minutes, radius in km
     plt.xlabel("Time (min)")
     plt.ylabel("Radius (km)")
-    plt.title(f"Position vs. Time, for satellite number: {num_sat + 1}")
+    plt.title(f"Position vs. Time, for sat. no.: {num_sat + 1}")
     plt.grid()
 
     # Plot altitude vs time
@@ -569,7 +569,7 @@ def plot_results(num_sat, all_times, all_states):
     plt.plot(plot_times / 60, plot_altitude)  # Time in minutes, altitude in km
     plt.xlabel("Time (min)")
     plt.ylabel("Altitude (km)")
-    plt.title(f"Altitude vs. Time, for satellite number: {num_sat + 1}")
+    plt.title(f"Altitude vs. Time, for sat. no.: {num_sat + 1}")
     plt.grid()
 
     # Plot remaining propellant vs time
@@ -577,7 +577,7 @@ def plot_results(num_sat, all_times, all_states):
     plt.plot(plot_times / 60, plot_propellant_levels)  # Time in minutes, altitude in km
     plt.xlabel("Time (min)")
     plt.ylabel("Remaining Propellant (kg)")
-    plt.title(f"Remaining Propellant vs. Time, for satellite number: {num_sat + 1}")
+    plt.title(f"Rem. Propellant vs. Time, for sat. no.: {num_sat + 1}")
     plt.grid()
 
     plt.tight_layout()
@@ -635,26 +635,6 @@ def main():
             "burn_flag": 0,  # Assuming that no satellite is thrusting initially
             "num_sat": num_sat  # Satellite number
         }
-
-        # Example Input
-        # main_data = {
-        #     "a": 6578.1363e3,  # Semi-major axis in meters
-        #     "e": 1e-4,  # Eccentricity
-        #     "i": convert_and_range_angle(97.5, 0, np.pi),  # Inclination, degrees
-        #     "RAAN": convert_and_range_angle(100, -np.pi, np.pi),  # RAAN, degrees
-        #     "omega": convert_and_range_angle(200, -np.pi, np.pi),  # Argument of perigee, degrees
-        #     "nu": convert_and_range_angle(50, -np.pi, np.pi),  # True anomaly, degrees
-        #     "S": 2,  # Cross-sectional area in m^2
-        #     "m0": 150,  # Dry mass of the satellite, kg
-        #     "mp": 1,  # Initial propellant mass in kg
-        #     "F": 20e-3,  # Thrust, N
-        #     "Isp": 1000,  # Specific impulse, s
-        #     "Cd": 2.2,  # Drag coefficient
-        #     "Initial_epoch": datetime.strptime("2025-01-01T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ").replace(
-        #         tzinfo=timezone.utc),
-        #     "burn_flag": 0,  # Assuming that no satellite is thrusting initially
-        #     "num_sat": num_sat  # Satellite number
-        # }
 
         all_main_data.append(main_data)
 

@@ -57,6 +57,28 @@ When prompted, provide the following for each satellite:
 12. Drag coefficient
 13. Initial mission epoch (YYYY-MM-DDTHH:MM:SSZ format)
 
+### Example Input
+```bash
+main_data = {
+  "a": 6578.1363e3,  # Semi-major axis in meters
+  "e": 1e-4,  # Eccentricity
+  "i": convert_and_range_angle(97.5, 0, np.pi),  # Inclination, degrees
+  "RAAN": convert_and_range_angle(100, -np.pi, np.pi),  # RAAN, degrees
+  "omega": convert_and_range_angle(200, -np.pi, np.pi),  # Argument of perigee, degrees
+  "nu": convert_and_range_angle(50, -np.pi, np.pi),  # True anomaly, degrees
+  "S": 2,  # Cross-sectional area in m^2
+  "m0": 150,  # Dry mass of the satellite, kg
+  "mp": 1,  # Initial propellant mass in kg
+  "F": 20e-3,  # Thrust, N
+  "Isp": 1000,  # Specific impulse, s
+  "Cd": 2.2,  # Drag coefficient
+  "Initial_epoch": datetime.strptime("2025-01-01T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ").replace(
+      tzinfo=timezone.utc),
+  "burn_flag": 0,  # Assuming that no satellite is thrusting initially
+  "num_sat": num_sat  # Satellite number
+  }
+```
+
 ### Parallel Processing
 - Option to enable/disable parallel processing
 - Configurable number of threads

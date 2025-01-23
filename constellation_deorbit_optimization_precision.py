@@ -575,7 +575,7 @@ def plot_results(num_sat, all_times, all_states):
     plt.plot(plot_times / 60, plot_r / 1e3)  # Time in minutes, radius in km
     plt.xlabel("Time (min)")
     plt.ylabel("Radius (km)")
-    plt.title(f"Position vs. Time, for satellite number: {num_sat + 1}")
+    plt.title(f"Position vs. Time, for sat. no.: {num_sat + 1}")
     plt.grid()
 
     # Plot altitude vs time
@@ -583,7 +583,7 @@ def plot_results(num_sat, all_times, all_states):
     plt.plot(plot_times / 60, plot_altitude)  # Time in minutes, altitude in km
     plt.xlabel("Time (min)")
     plt.ylabel("Altitude (km)")
-    plt.title(f"Altitude vs. Time, for satellite number: {num_sat + 1}")
+    plt.title(f"Altitude vs. Time, for sat. no.: {num_sat + 1}")
     plt.grid()
 
     # Plot remaining propellant vs time
@@ -591,7 +591,7 @@ def plot_results(num_sat, all_times, all_states):
     plt.plot(plot_times / 60, plot_propellant_levels)  # Time in minutes, altitude in km
     plt.xlabel("Time (min)")
     plt.ylabel("Remaining Propellant (kg)")
-    plt.title(f"Remaining Propellant vs. Time, for satellite number: {num_sat + 1}")
+    plt.title(f"Rem. Propellant vs. Time, for sat. no.: {num_sat + 1}")
     plt.grid()
 
     plt.tight_layout()
@@ -626,46 +626,26 @@ def main():
 
     for num_sat in range(n):
         main_data = {}
-        # print(f"Enter details for satellite {num_sat + 1}:")
-        #
-        # main_data = {
-        #     "a": float(input("Enter semi-major axis (m): ")),  # Semi-major axis in meters
-        #     "e": float(input("Enter eccentricity: ")),  # Eccentricity
-        #     "i": convert_and_range_angle(float(input("Enter inclination (degrees): ")), 0, np.pi),
-        #     # Inclination, degrees
-        #     "RAAN": convert_and_range_angle(float(input("Enter RAAN (degrees): ")), -np.pi, np.pi),  # RAAN, degrees
-        #     "omega": convert_and_range_angle(float(input("Enter argument of perigee (degrees): ")), -np.pi, np.pi),
-        #     # Argument of perigee, degrees
-        #     "nu": convert_and_range_angle(float(input("Enter true anomaly (degrees): ")), -np.pi, np.pi),
-        #     # True anomaly, degrees
-        #     "S": float(input("Enter drag surface area (m^2): ")),  # Cross-sectional area in m^2
-        #     "m0": float(input("Enter dry mass of the satellite (kg): ")),  # Dry mass of the satellite, kg
-        #     "mp": float(input("Enter initial propellant mass (kg): ")),  # Initial propellant mass in kg
-        #     "F": float(input("Enter Thrust (N): ")),  # Thrust, N
-        #     "Isp": float(input("Enter Specific impulse (s): ")),  # Specific impulse, s
-        #     "Cd": float(input("Enter Drag coefficient (unitless): ")),  # Drag coefficient
-        #     "Initial_epoch": datetime.strptime(input("Enter the initial epoch (YYYY-MM-DDTHH:MM:SSZ): "),
-        #                                        "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc),
-        #     "burn_flag": 0,  # Assuming that no satellite is thrusting initially
-        #     "num_sat": num_sat  # Satellite number
-        # }
+        print(f"Enter details for satellite {num_sat + 1}:")
 
-        # Example Input
         main_data = {
-            "a": 6578.1363e3,  # Semi-major axis in meters
-            "e": 1e-4,  # Eccentricity
-            "i": convert_and_range_angle(97.5, 0, np.pi),  # Inclination, degrees
-            "RAAN": convert_and_range_angle(100, -np.pi, np.pi),  # RAAN, degrees
-            "omega": convert_and_range_angle(200, -np.pi, np.pi),  # Argument of perigee, degrees
-            "nu": convert_and_range_angle(50, -np.pi, np.pi),  # True anomaly, degrees
-            "S": 2,  # Cross-sectional area in m^2
-            "m0": 150,  # Dry mass of the satellite, kg
-            "mp": 1,  # Initial propellant mass in kg
-            "F": 20e-3,  # Thrust, N
-            "Isp": 1000,  # Specific impulse, s
-            "Cd": 2.2,  # Drag coefficient
-            "Initial_epoch": datetime.strptime("2025-01-01T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ").replace(
-                tzinfo=timezone.utc),
+            "a": float(input("Enter semi-major axis (m): ")),  # Semi-major axis in meters
+            "e": float(input("Enter eccentricity: ")),  # Eccentricity
+            "i": convert_and_range_angle(float(input("Enter inclination (degrees): ")), 0, np.pi),
+            # Inclination, degrees
+            "RAAN": convert_and_range_angle(float(input("Enter RAAN (degrees): ")), -np.pi, np.pi),  # RAAN, degrees
+            "omega": convert_and_range_angle(float(input("Enter argument of perigee (degrees): ")), -np.pi, np.pi),
+            # Argument of perigee, degrees
+            "nu": convert_and_range_angle(float(input("Enter true anomaly (degrees): ")), -np.pi, np.pi),
+            # True anomaly, degrees
+            "S": float(input("Enter drag surface area (m^2): ")),  # Cross-sectional area in m^2
+            "m0": float(input("Enter dry mass of the satellite (kg): ")),  # Dry mass of the satellite, kg
+            "mp": float(input("Enter initial propellant mass (kg): ")),  # Initial propellant mass in kg
+            "F": float(input("Enter Thrust (N): ")),  # Thrust, N
+            "Isp": float(input("Enter Specific impulse (s): ")),  # Specific impulse, s
+            "Cd": float(input("Enter Drag coefficient (unitless): ")),  # Drag coefficient
+            "Initial_epoch": datetime.strptime(input("Enter the initial epoch (YYYY-MM-DDTHH:MM:SSZ): "),
+                                               "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc),
             "burn_flag": 0,  # Assuming that no satellite is thrusting initially
             "num_sat": num_sat  # Satellite number
         }
